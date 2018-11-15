@@ -23,10 +23,18 @@ const title = document.querySelector('#title')
 input.addEventListener('input', changeText)
 
 function changeText(e) {
-  const text = e.target.value
-  title.innerText = text
+    const text = e.target.value
+    text.split('')
+        .forEach(function(c) {
+            title.appendChild(addColorToCharacter(c))
+        })
 }
 
+const randColor = () => "#"+((1<<24)*Math.random()|0).toString(16)
+
 function addColorToCharacter(char) {
-  const span = document.createElememnt('span')
+  const span = document.createElement('span')
+  span.innerText = char
+  span.style.color = randColor()
+  return span
 }
