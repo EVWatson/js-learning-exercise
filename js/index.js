@@ -24,6 +24,7 @@ input.addEventListener('input', changeText)
 
 function changeText(e) {
     const text = e.target.value
+    title.innerHTML = ''
     text.split('')
         .forEach(function(c) {
             title.appendChild(addColorToCharacter(c))
